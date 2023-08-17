@@ -1,0 +1,41 @@
+{
+  "rules": {
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
+    "react/react-in-jsx-scope": 0,
+    "import/named": 0,
+    "@typescript-eslint/ban-types": "warn",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-unused-vars": ["error", { "ignoreRestSiblings": true }],
+    "react/prop-types": 0
+  },
+  "globals": {
+    "React": true,
+    "JSX": true,
+    "jsdom": true
+  },
+  "extends": [
+    "plugin:react-hooks/recommended",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "plugins": ["react", "import", "jest", "@typescript-eslint", "jest-dom", "testing-library"],
+  "overrides": [
+    {
+      "files": ["*.test.tsx", "*.test.ts", "*/tests/mocks/*.ts"],
+      "rules": {
+        "@typescript-eslint/no-empty-function": 0,
+        "max-lines-per-function": 0,
+        "@typescript-eslint/no-explicit-any": 0,
+        "testing-library/no-container": 0,
+        "testing-library/no-node-access": 0
+      },
+      "extends": ["plugin:testing-library/react", "plugin:jest-dom/recommended"]
+    }
+  ]
+}
